@@ -68,7 +68,7 @@ async function createCalendarEvent({ summary, date, time, name }) {
 // VAPI webhook handler
 app.post('/webhook', async (req, res) => {
     const body = req.body;
-    console.log('FULL WEBHOOK BODY:', JSON.stringify(body, null, 2));
+    console.log('VAPI event received:', body.message?.type);
   
     if (body.message?.type === 'tool-calls') {
       const toolCalls = body.message.toolCalls;
