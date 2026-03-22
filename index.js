@@ -154,3 +154,9 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Visit http://localhost:${PORT}/auth to authorize Google Calendar`);
 });
+
+app.use(express.static('public'));
+
+app.get('/call', (req, res) => {
+  res.sendFile(__dirname + '/public/call.html');
+});
