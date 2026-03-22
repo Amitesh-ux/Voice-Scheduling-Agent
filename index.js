@@ -40,20 +40,19 @@ async function createCalendarEvent({ summary, date, time, name }) {
   oauth2Client.setCredentials(storedTokens);
   const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
 
-  // Parse date and time into ISO format
-  const dateTimeStr = `${date}T${time}:00`;
-  const startDateTime = new Date(dateTimeStr);
-  const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour later
+  const [hours, minutes] = time.split(':').map(Number);
+  const endHours = hours + 1;
+  const endTime = `${String(endHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 
   const event = {
     summary: summary || 'Meeting',
     description: `Meeting booked for ${name} via Voice Scheduling Agent`,
     start: {
-      dateTime: startDateTime.toISOString(),
+      dateTime: `${date}T${time}:00`,
       timeZone: 'Asia/Kolkata',
     },
     end: {
-      dateTime: endDateTime.toISOString(),
+      dateTime: `${date}T${endTime}:00`,
       timeZone: 'Asia/Kolkata',
     },
   };
