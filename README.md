@@ -2,26 +2,25 @@
 
 A real-time voice assistant that books Google Calendar events through natural conversation. You speak to it, it collects your details, confirms them, and creates the event.
 
-**Live URL:** https://voice-scheduling-agent-production-4de7.up.railway.app
+**Live URL:** https://voice-scheduling-agent-production-4de7.up.railway.app/call
 
 ---
 
 ## Demo
 
-[Loom video link here]
+[Watch the demo](https://github.com/user-attachments/assets/ca42341f-20ad-423f-b5f8-f524da1f31e6)
 
 ---
 
 ## How to Test It
 
-**Deployed backend:** https://voice-scheduling-agent-production-4de7.up.railway.app
+Visit the live agent here:
+**https://voice-scheduling-agent-production-4de7.up.railway.app/call**
 
-To test the voice agent:
-1. Go to [vapi.ai](https://vapi.ai) and open the **Scheduling Agent** assistant
-2. Click **Talk to Assistant** to start a voice call
-3. The agent will ask for your name, preferred date, time, and an optional meeting title
-4. Confirm the details when it reads them back
-5. Check your Google Calendar — the event will appear within a few seconds
+1. Click **Start Call** and allow microphone access when prompted
+2. The agent will ask for your name, preferred date, time, and an optional meeting title
+3. Confirm the details when it reads them back
+4. Check your Google Calendar, the event will appear within a few seconds
 
 ---
 
@@ -80,7 +79,7 @@ Create a `.env` file with the variables listed above, then:
 node index.js
 ```
 
-Visit `http://localhost:3000/auth` to authorize Google Calendar on first run.
+Visit `http://localhost:3000/auth` to authorize Google Calendar on first run, then go to `http://localhost:3000/call` to test the voice agent.
 
 ---
 
